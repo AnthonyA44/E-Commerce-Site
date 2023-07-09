@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "img": "https://images.pexels.com/photos/3965557/pexels-photo-3965557.jpeg",
+        "title": "First",
+        "desc": "this is the first slide",
+        "bg": "f5fafd"
+    },
+    {
+        "id": 2,
+        "img": "https://images.pexels.com/photos/3302537/pexels-photo-3302537.jpeg",
+        "title": "Second",
+        "desc": "this is the second slide",
+        "bg": "fcf1ed"
+    },
+    {
+        "id": 3,
+        "img": "https://images.pexels.com/photos/7319324/pexels-photo-7319324.jpeg",
+        "title": "Third",
+        "desc": "this is the third slide",
+        "bg": "fbf0f4"
+    }
+]
