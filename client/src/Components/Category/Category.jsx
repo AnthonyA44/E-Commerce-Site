@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import categories from '../../fakeData/category';
 import { mobile } from '../../responsive';
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     display: flex;
@@ -52,11 +53,13 @@ const Category = () => {
     <Container>
         {categories.map((item) => (
            <CategoryCon key={item.id}>
-                <Image src={item.img}/>
-                <Info>
-                    <Title>{item.title}</Title>
-                    <Button>Shop now</Button>
-                </Info>
+                <Link to={`/products/${item.category}`}>
+                    <Image src={item.img}/>
+                    <Info>
+                        <Title>{item.title}</Title>
+                        <Button>Shop now</Button>
+                    </Info>
+                </Link>
             </CategoryCon>
         ))}
     </Container>

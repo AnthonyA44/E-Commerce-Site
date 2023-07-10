@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import products from "../../fakeData/product.json";
-import {
-    FavoriteBorderOutlined,
-    SearchOutlined,
-    ShoppingCartOutlined,
-  } from "@mui/icons-material";
+import product from "../../fakeData/product.json";
+import Product from "../Product/Product.jsx"
+  import axios from "axios";
+  import { useEffect, useState } from "react";
   
 
 const Container = styled.div`
@@ -14,87 +12,58 @@ const Container = styled.div`
     justify-content: space-between;
 `;
 
-const Info = styled.div`
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease;
-  cursor: pointer;
-`;
+const Products = ({ category, filters, sort }) => {
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-const ProductCon = styled.div`
-  flex: 1;
-  margin: 5px;
-  min-width: 280px;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f5fbfd;
-  position: relative;
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          category
+            ? `http://localhost:4012/api/products?category=${category}`
+            : "http://localhost:4012/api/products"
+        );
+        setProducts(res.data);
+      } catch (err) {}
+    };
+    getProducts();
+  }, [category]);
 
-  &:hover ${Info}{
-    opacity: 1;
-  }
-`;
+  useEffect(() => {
+    category &&
+      setFilteredProducts(
+        products.filter((item) =>
+          Object.entries(filters).every(([key, value]) =>
+            item[key].includes(value)
+          )
+        )
+      );
+  }, [products, category, filters]);
 
-const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-`;
+  useEffect(() => {
+    if (sort === "newest") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.createdAt - b.createdAt)
+      );
+    } else if (sort === "asc") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.price - b.price)
+      );
+    } else {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => b.price - a.price)
+      );
+    }
+  }, [sort]);
 
-const Image = styled.img`
-  height: 75%;
-  z-index: 2;
-`;
-
-const Icon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-  transition: all 0.5s ease;
-  &:hover {
-    background-color: #e9f5f5;
-    transform: scale(1.1);
-  }
-`;
-
-const Products = () => {
   return (
     <Container>
-      {products.map((item) => (
-        <ProductCon key={item.id}>
-            <Circle />
-            <Image src={item.img} />
-            <Info>
-              <Icon>
-                <ShoppingCartOutlined />
-              </Icon>
-              <Icon>
-                <SearchOutlined />
-              </Icon>
-              <Icon>
-                <FavoriteBorderOutlined />
-              </Icon>
-            </Info>
-          </ProductCon>
-      ))}
+      {category
+        ? filteredProducts.map((item) => <Product item={item} key={item.id} />)
+        : products
+            .slice(0, 8)
+            .map((item) => <Product item={item} key={item.id} />)}
     </Container>
   );
 };
