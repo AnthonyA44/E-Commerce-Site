@@ -2,19 +2,19 @@
     {
         "id": 1,
         "img": "https://images.pexels.com/photos/3965557/pexels-photo-3965557.jpeg",
-        "title": "First Category",
+        "title": "Womens Clothing",
         "category": "womens"
     },
     {
         "id": 2,
         "img": "https://images.pexels.com/photos/3302537/pexels-photo-3302537.jpeg",
-        "title": "Second Category",
-        "category": "coat"
+        "title": "Mens Clothing",
+        "category": "mens"
     },
     {
         "id": 3,
         "img": "https://images.pexels.com/photos/7319324/pexels-photo-7319324.jpeg",
-        "title": "Third Category",
-        "category": "jeans"
+        "title": "Summer Clothing",
+        "category": "womens"
     }
 ]

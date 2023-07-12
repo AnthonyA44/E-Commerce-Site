@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import product from "../../fakeData/product.json";
 import Product from "../Product/Product.jsx"
-  import axios from "axios";
-  import { useEffect, useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
   
 
 const Container = styled.div`
@@ -60,10 +59,10 @@ const Products = ({ category, filters, sort }) => {
   return (
     <Container>
       {category
-        ? filteredProducts.map((item) => <Product item={item} key={item.id} />)
+        ? filteredProducts.map((item) => <Product item={item} />)
         : products
             .slice(0, 8)
-            .map((item) => <Product item={item} key={item.id} />)}
+            .map((item) => <Product item={item}/>)}
     </Container>
   );
 };

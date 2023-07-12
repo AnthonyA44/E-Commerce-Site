@@ -32,7 +32,7 @@ const Info = styled.div`
 `
 
 const Image = styled.img`
-    height:100%;
+    height:500px;
     width:100%;
     object-fit: cover;
 `

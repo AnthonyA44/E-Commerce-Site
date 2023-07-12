@@ -7,28 +7,28 @@ import ProductList from "./Pages/ProductList/productList";
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 import Cart from "./Pages/Cart/Cart"
+import Success from "./Pages/Success"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  const user = true
+  const user = useSelector(state => state.user.currentUser)
   return (
     <>
-    <Navbar/>
-    <Announcement/>
     <BrowserRouter>
+      <Navbar/>
+      <Announcement/>
       <Routes>
-        {/* can put header and footer in here and have a condition checking the path to see if its login or register */}
-        {/* <Route path="/" element={<></>}> */}
           <Route exact path="/" element={<Home />} />
           <Route path="/products/:category" element={<ProductList />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
           <Route path="/register" element={user ? <Navigate to="/" /> : <Register />}/>
-        {/* </Route> */}
+          <Route path="/success" element={<Success />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
-    <Footer/>
     </>
   )
 };
