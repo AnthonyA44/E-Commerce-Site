@@ -1,11 +1,12 @@
 # E-Commerce-Site (WIP will update documentation with clear instructions in future)
 
-The purpose of this project is to practice and learn certain web development stills. This is an E-Commerce Site built using; React, Redux, Axios, Styled Components and Sass for the Frontend; Node, JsonWebToken, Stripe, Firebase, MongoDB, and Express for the Backend
+The purpose of this project is to practice and learn certain web development stills. This is an E-Commerce Application with basic site functionality you would expect from adding products to a users cart, to filtering and searching varies products.
 
-## Table of Contents
+## Skill Highlight
 
-- [Features](#features)
-- [Installation](#installation)
+This is an E-Commerce Site built using; 
+ - Frontend: **React, Redux, Axios, Styled Components and Sass**
+ - Backend: **Node, MongoDB, Express, JsonWebToken, Stripe, and Firebase**
 
 ## Features
 
