@@ -4,6 +4,9 @@ import App from './App.jsx'
 import {Provider} from 'react-redux'
 import {store, persistor}  from './redux/store.js'
 import { PersistGate } from 'redux-persist/integration/react';
+import {disableReactDevTools} from '@fvilers/disable-react-devtools';
+
+if (process.env.NODE_ENV === 'product') disableReactDevTools();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>

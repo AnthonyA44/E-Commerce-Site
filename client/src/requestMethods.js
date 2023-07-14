@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:4012/api/";
+const BASE_URL = "https://Anthony-Ecom.onrender.com";
 const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
 const currentUser = user && JSON.parse(user).currentUser;
 const TOKEN = currentUser?.accessToken;
