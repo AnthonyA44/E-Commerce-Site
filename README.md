@@ -1,6 +1,6 @@
 # E-Commerce-Site (WIP)
 
-This is an E-Commerce Application with basic site functionality you would expect from adding products to a users cart, to filtering and searching varies products. You can visit the website by clicking [here](https://anthony-ecom.onrender.com)
+The purpose of this project is to practice web development skills. This is an E-Commerce Application with basic site functionality you would expect from adding products to a users cart, to filtering and searching varies products. You can visit the website by clicking [here](https://anthony-ecom.onrender.com)
 
 ## Skill Highlight
 
