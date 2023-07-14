@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { mobile } from "../../responsive";
 import { useSelector } from "react-redux";
 import  StripeCheckout from 'react-stripe-checkout'
-import key from '/etc/secrets/config.json';
+import config from '../../../config.json';
 import { useEffect, useState } from "react";
 import { userRequest } from "../../requestMethods";
 import { useNavigate } from "react-router";
 
-const KEY = key;
+const KEY = config.STRIPE_KEY;
 
 const Container = styled.div``;
 
