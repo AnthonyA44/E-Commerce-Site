@@ -13,7 +13,7 @@ const cors = require("cors");
 dotenv.config({});
 
 mongoose.connect(process.env.MONGO_URL)
-    .then(() => console.log("db connection success"))
+    .then(() => console.log("db connection success" + process.env.MONGO_URL))
     .catch((e) => {
         console.log(e);
     })
@@ -32,6 +32,6 @@ app.use("/api/cart", cartRoute);
 app.use("/api/order", orderRoute);
 app.use("/api/checkout", stripeRoute);
 
-app.listen(process.env.PORT || "https://anthony-ecom-api.onrender.com/", () => {
+app.listen(process.env.PORT || "443", () => {
     console.log("runnings");
 })
