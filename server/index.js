@@ -32,6 +32,6 @@ app.use("/api/cart", cartRoute);
 app.use("/api/order", orderRoute);
 app.use("/api/checkout", stripeRoute);
 
-app.listen(process.env.PORT || 4012, () => {
+app.listen(process.env.PORT || "https://anthony-ecom-api.onrender.com/", () => {
     console.log("runnings");
 })
