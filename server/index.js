@@ -34,4 +34,5 @@ app.use("/api/checkout", stripeRoute);
 
 app.listen(process.env.PORT || "443", () => {
     console.log("runnings");
+    console.log(process.env.PORT);
 })
